@@ -1,0 +1,43 @@
+#footer {
+  background-color: #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #949494;
+  .fontSizeP a {
+    font-size: 12px !important;
+    font-size: 80%;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #949494;
+    display: block;
+    transition: all 0.2s;
+    line-height: 2.3;
+  }
+  .title {
+    color: #fff;
+    font-size: 80%;
+  }
+  .noPaddingLeft {
+    padding-left: 0;
+  }
+}
+.block {
+  padding-left: 0;
+  padding-right: 0;
+}
+.mainMaxWidth {
+  max-width: 940px;
+  float: none;
+  margin: auto;
+  clear: both;
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s;
+}
