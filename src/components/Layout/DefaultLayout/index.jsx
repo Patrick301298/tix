@@ -5,7 +5,7 @@ function DefaultLayout(props) {
   return (
     <div>
       <Header />
-      {props.children}
+      <div>{props.children}</div>
       <Footer />
     </div>
   );
