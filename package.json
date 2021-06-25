@@ -12,11 +12,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
-    "redux": "^4.1.0",
-=======
     "react-slick": "^0.28.1",
->>>>>>> a766715b88e4601b4a960543805d40e8339fb2d1
     "sass": "^1.35.1",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^1.0.1"

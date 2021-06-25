@@ -8,10 +8,8 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <DefaultLayout>
-          <Switch exact path="/">
-            <Route>
-              <Home />
-            </Route>
+          <Switch>
+            <Route exact path="/" component={Home} />
           </Switch>
         </DefaultLayout>
       </BrowserRouter>
