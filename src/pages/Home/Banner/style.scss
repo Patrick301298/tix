@@ -1,0 +1,27 @@
+.slides {
+  margin-top: 60px;
+  img {
+    height: 550px;
+  }
+}
+.playTrailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background: 0 0;
+  border: none;
+}
+
+.slick-arrow {
+  color: black;
+}
+.slick-prev {
+  z-index: 3;
+  left: 20px !important;
+}
+.slick-next {
+  z-index: 3;
+  right: 20px !important;
+}
