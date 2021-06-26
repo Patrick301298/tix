@@ -3,6 +3,33 @@
   img {
     height: 550px;
   }
+  .slick-arrow {
+    color: black;
+  }
+  .slick-prev {
+    z-index: 3;
+    left: 20px !important;
+  }
+  .slick-next {
+    z-index: 3;
+    right: 20px !important;
+  }
+  .slick-dots {
+    margin-bottom: 50px;
+    z-index: 3;
+    li {
+      button::before {
+        color: #d8d8d8;
+        font-size: 12px;
+        border: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        padding: 0;
+        user-select: none;
+      }
+    }
+  }
 }
 .playTrailer {
   position: absolute;
@@ -12,16 +39,4 @@
   z-index: 3;
   background: 0 0;
   border: none;
-}
-
-.slick-arrow {
-  color: black;
-}
-.slick-prev {
-  z-index: 3;
-  left: 20px !important;
-}
-.slick-next {
-  z-index: 3;
-  right: 20px !important;
 }

@@ -20,27 +20,29 @@ export default class Banner extends Component {
       className: "slides",
     };
     return (
-      <div>
-        <button type="button" className="playTrailer">
-          <img src={Play} alt="" />
-        </button>
-        <Slider {...settings}>
-          <div>
-            <a href="#abc">
-              <img src={Banner1} alt="" />
-            </a>
-          </div>
-          <div>
-            <a href="#abc">
-              <img src={Banner2} alt="" />
-            </a>
-          </div>
-          <div>
-            <a href="#abc">
-              <img src={Banner3} alt="" />
-            </a>
-          </div>
-        </Slider>
+      <div className="row grayBack">
+        <div className="col-xs-12">
+          <button type="button" className="playTrailer">
+            <img src={Play} alt="" />
+          </button>
+          <Slider {...settings}>
+            <div>
+              <a href="#abc">
+                <img src={Banner1} alt="" />
+              </a>
+            </div>
+            <div>
+              <a href="#abc">
+                <img src={Banner2} alt="" />
+              </a>
+            </div>
+            <div>
+              <a href="#abc">
+                <img src={Banner3} alt="" />
+              </a>
+            </div>
+          </Slider>
+        </div>
       </div>
     );
   }
