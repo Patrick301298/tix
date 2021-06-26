@@ -24,6 +24,9 @@ export const getMovieFailure = (err) => {
 
 export const getMovie = () => async (dispatch) => {
   dispatch(getMovieRequest());
+  const data2 = await apiGetListMovie();
+
+  console.log(data2);
   const { status, data } = await apiGetListMovie();
 
   if (status === STATUS_CODES.SUCCESS) {
