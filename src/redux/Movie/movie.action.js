@@ -1,7 +1,34 @@
 import * as types from "./movie.constants";
+import { STATUS_CODES } from "../../constants/api";
+import { apiGetListMovie } from "../../api/Movie/listMovie.api";
 
-export const getMovie = () => {
+export const getMovieRequest = () => {
   return {
-    type: types.GET_DATA,
+    type: types.GET_LIST_MOVIE_REQUEST,
   };
+};
+
+export const getMovieSuccess = (data) => {
+  return {
+    type: types.GET_LIST_MOVIE_SUCCESS,
+    payload: { data },
+  };
+};
+
+export const getMovieFailure = (err) => {
+  return {
+    type: types.GET_LIST_MOVIE_FAILURE,
+    payload: { err },
+  };
+};
+
+export const getMovie = () => async (dispatch) => {
+  dispatch(getMovieRequest());
+  const { status, data } = await apiGetListMovie();
+
+  if (status === STATUS_CODES.SUCCESS) {
+    dispatch(getMovieSuccess(data));
+  } else {
+    dispatch(getMovieFailure("Lỗi lấy dữ liệu"));
+  }
 };
