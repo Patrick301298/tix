@@ -1,11 +1,9 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import combineReducer from "../combineReducers";
+import thunk from "redux-thunk";
 
 const configStore = () => {
-  const store = createStore(
-    combineReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
+  const store = createStore(combineReducer, applyMiddleware(thunk));
 
   return store;
 };

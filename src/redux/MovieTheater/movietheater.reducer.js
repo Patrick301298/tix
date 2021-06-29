@@ -1,40 +1,35 @@
-import * as types from "./movie.constants";
+import * as types from "./movietheater.constants";
 
 const initialState = {
-  listMovie: [],
+  listMovieTheater: [],
   loading: false,
   error: "",
 };
 
-const MovieReducer = (state = initialState, { type, payload }) => {
+const MovieTheaterReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case types.GET_LIST_MOVIE_REQUEST: {
+    case types.GET_LIST_MOVIE_THEATER_REQUEST: {
       return {
         ...state,
         loading: true,
       };
     }
-
-    case types.GET_LIST_MOVIE_SUCCESS: {
+    case types.GET_LIST_MOVIE_THEATER_SUCCESS: {
       const { data = [] } = payload;
-
       return {
         ...state,
         loading: false,
-        listMovie: data,
+        listMovieTheater: data,
       };
     }
-
-    case types.GET_LIST_MOVIE_FAILURE: {
+    case types.GET_LIST_MOVIE_THEATER_FAILURE: {
       const { err } = payload;
-
       return {
         ...state,
         loading: false,
         error: err,
       };
     }
-
     default: {
       return {
         ...state,
@@ -43,4 +38,4 @@ const MovieReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default MovieReducer;
+export default MovieTheaterReducer;
