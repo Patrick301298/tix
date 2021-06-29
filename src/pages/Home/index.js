@@ -1,6 +1,7 @@
 import React from "react";
 import ListMovieContainer from "../../containers/ListMovieContainer";
 import ListMovieTheaterContainer from "../../containers/ListMovieTheaterContainer";
+import HomeNewsContainer from "../../containers/HomeNewsContainer";
 import Banner from "./Banner";
 const Home = (props) => {
   return (
@@ -20,10 +21,18 @@ const Home = (props) => {
           <ListMovieContainer />
         </div>
       </div>
+
       <div className="homeTix__listMovieTheater">
         <div className="homeTix__listMovieTheater__inTro">
           {/* List Movie Theater Container */}
           <ListMovieTheaterContainer />
+        </div>
+      </div>
+
+      <div className="homeTix__homeNews">
+        <div className="homeTix__homeNews__inTro">
+          {/* Home News Container */}
+          <HomeNewsContainer />
         </div>
       </div>
 
