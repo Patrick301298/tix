@@ -1,0 +1,22 @@
+#homeApp {
+  padding: 120px 0 80px 0;
+  background: url(../../assets/Image/backapp.jpg);
+  background-size: contain;
+}
+.slides2 {
+  .slick-arrow {
+    color: black;
+  }
+  .slick-prev {
+    z-index: 0;
+    left: 20px !important;
+  }
+  .slick-next {
+    z-index: -1;
+    right: 20px !important;
+  }
+  .slick-dots {
+    margin-bottom: 50px;
+    z-index: -1;
+  }
+}
