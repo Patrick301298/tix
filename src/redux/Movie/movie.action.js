@@ -32,3 +32,63 @@ export const getMovie = () => async (dispatch) => {
     dispatch(getMovieFailure("Lỗi lấy dữ liệu"));
   }
 };
+
+//GET_LIST_MOVIE_OLD_DATE
+
+export const getListMovieOldDateRequest = () => {
+  return {
+    type: types.GET_LIST_MOVIE_OLD_DATE_REQUEST,
+  };
+};
+export const getListMovieOldDateSuccess = (data) => {
+  return {
+    type: types.GET_LIST_MOVIE_OLD_DATE_SUCCESS,
+    payload: { data },
+  };
+};
+export const getListMovieOldDateFailure = (err) => {
+  return {
+    type: types.GET_LIST_MOVIE_OLD_DATE_FAILURE,
+    payload: err,
+  };
+};
+export const getMovieOldDate = () => async (dispatch) => {
+  dispatch(getListMovieOldDateRequest());
+  const { status, data } = await apiGetListMovie();
+
+  if (status === STATUS_CODES.SUCCESS) {
+    dispatch(getListMovieOldDateSuccess(data));
+  } else {
+    dispatch(getListMovieOldDateFailure("Failure!"));
+  }
+};
+
+//GET_LIST_MOVIE_FUTURE_DATE
+export const getMovieFutureDateRequest = () => {
+  return {
+    type: types.GET_LIST_MOVIE_FUTURE_DATE_REQUEST,
+  };
+};
+export const getMovieFutureDateSuccess = (data) => {
+  return {
+    type: types.GET_LIST_MOVIE_FUTURE_DATE_SUCCESS,
+    payload: { data },
+  };
+};
+export const getMovieFutureDateFailure = (err) => {
+  return {
+    type: types.GET_LIST_MOVIE_FUTURE_DATE_FAILURE,
+    payload: { err },
+  };
+};
+
+export const getMovieFutureDate = () => async (dispatch) => {
+  dispatch(getMovieFutureDateRequest());
+  const { status, data } = await apiGetListMovie();
+
+  if (status === STATUS_CODES.SUCCESS) {
+    dispatch(getMovieFutureDateSuccess(data));
+  } else {
+    dispatch(getMovieFutureDateFailure("Failure!"));
+  }
+};

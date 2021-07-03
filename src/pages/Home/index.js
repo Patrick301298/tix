@@ -3,6 +3,7 @@ import ListMovieContainer from "../../containers/ListMovieContainer";
 import ListMovieTheaterContainer from "../../containers/ListMovieTheaterContainer";
 import HomeNewsContainer from "../../containers/HomeNewsContainer";
 import HomeAppContainer from "../../containers/HomeAppContainer";
+import HomeToolContainer from "../../containers/HomeToolContainer";
 import Banner from "./Banner";
 const Home = (props) => {
   return (
@@ -13,6 +14,7 @@ const Home = (props) => {
         </div>
         <div className="homeTix__header__searchMovie">
           {/* Search Movie container */}
+          <HomeToolContainer />
         </div>
       </div>
 

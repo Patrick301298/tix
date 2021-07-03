@@ -6,7 +6,7 @@ import { getMovieTheater } from "../../redux/MovieTheater/movietheater.action";
 const ListMovieTheaterContainer = () => {
   const dispatch = useDispatch();
 
-  const { listMovieTheater, error, loading } = useSelector(
+  const { listLogo, error, loading } = useSelector(
     (state) => state.movieTheater
   );
 
@@ -14,11 +14,7 @@ const ListMovieTheaterContainer = () => {
     dispatch(getMovieTheater());
   }, [dispatch]);
   return (
-    <ListMovieTheater
-      listMovieTheater={listMovieTheater}
-      loading={loading}
-      error={error}
-    />
+    <ListMovieTheater listLogo={listLogo} loading={loading} error={error} />
   );
 };
 
