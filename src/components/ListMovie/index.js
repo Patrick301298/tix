@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 
 import { useDispatch } from "react-redux";
@@ -13,6 +13,14 @@ import {
 } from "../../redux/Movie/movie.action";
 
 const ListMovie = ({ listMovie, loading, error }) => {
+  const [activeDC, setActiveDC] = useState(false);
+
+  const [activeSC, setActiveSC] = useState(false);
+
+  useEffect(() => {
+    setActiveDC(true);
+  }, []);
+
   const dispatch = useDispatch();
   const renderMovie = () => {
     let xhtml = null;
@@ -24,10 +32,15 @@ const ListMovie = ({ listMovie, loading, error }) => {
   };
   const handleChangeDC = () => {
     dispatch(getMovieOldDate());
+    setActiveDC(true);
+    setActiveSC(false);
   };
   const handleChangeSC = () => {
     dispatch(getMovieFutureDate());
+    setActiveSC(true);
+    setActiveDC(false);
   };
+
   return (
     <div className="row grayBack" id="filmblock">
       <div className="col-xs-12 block mainMaxWidth" id="homeMovies">
@@ -35,11 +48,15 @@ const ListMovie = ({ listMovie, loading, error }) => {
           <li
             onClick={handleChangeDC}
             style={{ marginRight: 5 }}
-            className="active"
+            className={activeDC ? "active" : ""}
           >
             <a href="#DangChieu">Đang Chiếu</a>
           </li>
-          <li onClick={handleChangeSC} style={{ marginLeft: 5 }}>
+          <li
+            onClick={handleChangeSC}
+            style={{ marginLeft: 5 }}
+            className={activeSC ? "active" : ""}
+          >
             <a href="#SapChieu">Sắp chiếu</a>
           </li>
         </ul>

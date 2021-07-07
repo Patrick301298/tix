@@ -15,3 +15,10 @@ export const apiGetListTheaterByID = (ID) => {
     `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${ID}`
   );
 };
+
+export const apiGetInfoMovieByID = (ID) => {
+  return axiosService.get(
+    `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${ID}
+`
+  );
+};

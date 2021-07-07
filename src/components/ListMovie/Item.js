@@ -1,8 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Play from "../../assets/Image/play-video.png";
 import Star from "../../assets/Image/star1.png";
 import Star1_2 from "../../assets/Image/star1.2.png";
+import { useDispatch } from "react-redux";
+import { getInfoMovieByID } from "../../redux/Movie/movie.action";
+
 const Item = ({ itemMovie }) => {
+  const dispatch = useDispatch();
+  const handleClickItem = (e) => {
+    dispatch(getInfoMovieByID(itemMovie.maPhim));
+    console.log("Data");
+  };
+  //console.log(itemMovie);
   return (
     <div
       style={{
@@ -12,7 +23,7 @@ const Item = ({ itemMovie }) => {
       className="col-sm-3 col-xs-12 wrapFilm "
     >
       <div className="film">
-        <a href={itemMovie.trailer}>
+        <a href="#phim">
           <div className="filmThumbnail">
             <img
               src={itemMovie.hinhAnh}
@@ -21,7 +32,9 @@ const Item = ({ itemMovie }) => {
             />
             <div className="hoverInfo showHover showingDetail">
               <button className="playTrailer">
-                <img src={Play} alt="" />
+                <a href={itemMovie.trailer}>
+                  <img src={Play} alt="" />
+                </a>
               </button>
             </div>
             <span className="avgPoint">
@@ -44,9 +57,13 @@ const Item = ({ itemMovie }) => {
             Ngày Khởi Chiếu : {itemMovie.ngayKhoiChieu}
           </div>
           <div className="showHover">
-            <a href={itemMovie.trailer} className="buyNow showingDetail">
+            <Link
+              onClick={handleClickItem}
+              to={`/movie/${itemMovie.maPhim}`}
+              className="buyNow showingDetail"
+            >
               MUA VÉ
-            </a>
+            </Link>
           </div>
         </div>
       </div>

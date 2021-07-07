@@ -1,6 +1,9 @@
 import * as types from "./movie.constants";
 import { STATUS_CODES } from "../../constants/api";
-import { apiGetListMovie } from "../../api/Movie/listMovie.api";
+import {
+  apiGetInfoMovieByID,
+  apiGetListMovie,
+} from "../../api/Movie/listMovie.api";
 
 export const getMovieRequest = () => {
   return {
@@ -90,5 +93,40 @@ export const getMovieFutureDate = () => async (dispatch) => {
     dispatch(getMovieFutureDateSuccess(data));
   } else {
     dispatch(getMovieFutureDateFailure("Failure!"));
+  }
+};
+
+//GET_INFO_MOVIE_BY_ID
+
+export const getInfoMovieByIDRequest = () => {
+  return {
+    type: types.GET_INFO_MOVIE_BY_ID_REQUEST,
+  };
+};
+
+export const getInfoMovieByIDSuccess = (data) => {
+  return {
+    type: types.GET_INFO_MOVIE_BY_ID_SUCCESS,
+    payload: { data },
+  };
+};
+
+export const getInfoMovieByIDFailure = (err) => {
+  return {
+    type: types.GET_INFO_MOVIE_BY_ID_FAILURE,
+    payload: { err },
+  };
+};
+
+export const getInfoMovieByID = (ID) => async (dispatch) => {
+  dispatch(getInfoMovieByIDRequest());
+
+  const { status, data } = await apiGetInfoMovieByID(ID);
+  console.log("Data", data);
+
+  if (status === STATUS_CODES.SUCCESS) {
+    dispatch(getInfoMovieByIDSuccess(data));
+  } else {
+    dispatch(getInfoMovieByIDFailure("Failed"));
   }
 };

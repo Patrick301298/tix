@@ -5,6 +5,7 @@ const initialState = {
   listMovie: [],
   loading: false,
   error: "",
+  inFoMovie: {},
 };
 
 const MovieReducer = (state = initialState, { type, payload }) => {
@@ -18,10 +19,16 @@ const MovieReducer = (state = initialState, { type, payload }) => {
 
     case types.GET_LIST_MOVIE_SUCCESS: {
       const { data = [] } = payload;
+
+      const dateNow = moment().unix();
+      const listNew = data.filter((item) => {
+        const dateStarted = moment(item.ngayKhoiChieu).unix();
+        return dateStarted <= dateNow;
+      });
       return {
         ...state,
         loading: false,
-        listMovie: data,
+        listMovie: listNew,
       };
     }
 
@@ -58,7 +65,7 @@ const MovieReducer = (state = initialState, { type, payload }) => {
       const { err } = payload;
       return {
         ...state,
-        payload: { err },
+        error: err,
       };
     }
     //GET_LIST_MOVIE_FUTURE_DATE
@@ -83,7 +90,31 @@ const MovieReducer = (state = initialState, { type, payload }) => {
       const { err } = payload;
       return {
         ...state,
-        payload: { err },
+        error: err,
+      };
+    }
+    //GET_INFO_MOVIE_BY_ID
+    case types.GET_INFO_MOVIE_BY_ID_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case types.GET_INFO_MOVIE_BY_ID_SUCCESS: {
+      const { data = {} } = payload;
+      console.log("Data", data);
+      return {
+        ...state,
+        loading: false,
+        inFoMovie: data,
+      };
+    }
+    case types.GET_INFO_MOVIE_BY_ID_FAILURE: {
+      const { err } = payload;
+      return {
+        ...state,
+        loading: false,
+        error: err,
       };
     }
     default: {

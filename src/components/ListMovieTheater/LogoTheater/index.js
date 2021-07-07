@@ -6,7 +6,7 @@ const LogoTheater = ({ listLogo, loading, error }) => {
   const renderLogoTheater = () => {
     let xhtml = null;
     if (_.isEmpty(listLogo)) return xhtml;
-    xhtml = listLogo.slice(0, 6).map((item, index) => {
+    xhtml = listLogo.map((item, index) => {
       return <Item key={index} itemLogo={item} />;
     });
     return xhtml;
